@@ -1,0 +1,72 @@
+name: Apply project updates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-project-updates.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update project cards
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          replacements = [
+              (
+                  '.project-rist{grid-column:1;grid-row:2;padding:30px 32px;background:#101e1a;display:flex;flex-direction:column}.project-rist>img{width:82%;margin:35px auto 15px;filter:saturate(.9)}.rist-bottom{margin-top:auto;display:flex;justify-content:space-between;gap:25px;align-items:end}.rist-bottom p{max-width:460px;margin:0;color:rgba(255,255,255,.62);font-size:.83rem}.project-status{flex:none;padding:8px 11px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:rgba(255,255,255,.64);font-size:.64rem;font-weight:700}',
+                  '.project-rist{grid-column:1;grid-row:2;padding:30px 32px;background:#101e1a;display:flex;flex-direction:column}.project-rist>img{width:82%;margin:35px auto 15px;filter:saturate(.9)}.rist-bottom{margin-top:auto;display:flex;justify-content:space-between;gap:25px;align-items:end}.rist-bottom p{max-width:460px;margin:0;color:rgba(255,255,255,.62);font-size:.83rem}.project-status{flex:none;display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:rgba(255,255,255,.64);font-size:.64rem;font-weight:700;text-decoration:none;transition:background .2s ease,border-color .2s ease,color .2s ease}.project-status[href]:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.35);color:#fff}'
+              ),
+              (
+                  '.project-pyme{grid-column:2;grid-row:2;padding:30px 32px;background:linear-gradient(150deg,#24443b,#142620)}.pyme-type{position:absolute;right:28px;top:55px;color:rgba(210,162,88,.16);font-family:var(--serif);font-size:11rem;line-height:1}.pyme-bottom{position:absolute;z-index:2;left:32px;right:32px;bottom:30px}.pyme-bottom h3{max-width:15ch;font-size:2.35rem}',
+                  '.project-pyme{grid-column:2;grid-row:2;padding:30px 32px;background:linear-gradient(150deg,#24443b,#142620)}.pyme-type{position:absolute;right:28px;top:55px;color:rgba(210,162,88,.16);font-family:var(--serif);font-size:11rem;line-height:1}.pyme-bottom{position:absolute;z-index:2;left:32px;right:32px;bottom:30px}.pyme-bottom h3{max-width:17ch;font-size:2.2rem}.pyme-bottom p{max-width:46ch;margin:14px 0 18px;color:rgba(255,255,255,.62);font-size:.83rem;line-height:1.55}'
+              ),
+              (
+                  '<span class="project-status">En desarrollo</span>',
+                  '<a class="project-status" href="https://ristetto.com/" target="_blank" rel="noopener noreferrer">Visitar Rist ↗</a>'
+              ),
+              (
+                  '<h3>Mejores decisiones de financiación para pequeñas empresas.</h3>\n              <a href="#contacto">Conocer más <span>↗</span></a>',
+                  '<h3>Una iniciativa fintech para ayudar a las MiPymes a financiarse mejor.</h3>\n              <p>Actualmente está en pausa, pero sigue siendo un proyecto que me gustaría retomar en el futuro.</p>\n              <span class="project-status">Proyecto en pausa</span>'
+              ),
+          ]
+
+          changed = False
+          for old, new in replacements:
+              if old in text:
+                  text = text.replace(old, new, 1)
+                  changed = True
+              elif new in text:
+                  print('Already updated:', new[:80])
+              else:
+                  raise SystemExit('Expected source text not found: ' + old[:120])
+
+          if changed:
+              path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update Rist link and mark Financia tu Pyme as paused"
+          git push
