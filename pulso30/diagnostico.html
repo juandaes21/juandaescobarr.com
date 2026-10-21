@@ -60,7 +60,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 @media(max-width:850px){.page{display:block}.side{min-height:0}.side:after{inset:12px}.side-inner{position:relative;min-height:0;padding:23px 36px;gap:0}.side-body,.side-bottom{display:none}.main{padding:29px 36px 85px}.top{margin-bottom:42px}}
 @media(max-width:550px){.main{padding:25px 23px 65px}.side-inner{padding:20px 25px}.fields{grid-template-columns:1fr;gap:24px}.progress-step{font-size:8px;letter-spacing:.05em;gap:5px}.progress{margin:28px 0 40px}.actions{margin-top:39px}.btn{gap:20px;min-width:0}.top{margin-bottom:35px}.top small{display:none}.step-title{font-size:42px}.agreement{padding:17px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-</style><script>window.PULSO30_CRM_WEB_APP_URL = ""; /* Activar solo tras autorizar y probar Apps Script */</script>
+</style><script>window.PULSO30_CRM_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwkViOHQzZ_IpfHA4zLDXpFiqf1mhn16SfnFd8hbAFKWQTgyro1rX3KeiT19hVuxlc/exec";</script>
 </head>
 <body>
 <div class="page">
@@ -111,11 +111,11 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
        <div class="field full"><label for="datos">¿Tienes registros mensuales de ventas y costos? <span class="required">*</span></label><select id="datos" name="Disponibilidad de datos" required><option value="">Seleccionar</option><option>Sí, organizados</option><option>Sí, pero están dispersos</option><option>Parcialmente</option><option>No por ahora</option></select></div>
        <div class="field full"><label for="notas">Notas adicionales (opcional)</label><textarea id="notas" name="Notas adicionales" maxlength="450" placeholder="Algo que consideres importante, sin datos confidenciales."></textarea></div>
       </div>
-      <div class="agreement"><input id="consent" name="Consentimiento" type="checkbox" required value="Sí"><label for="consent">Acepto compartir estos datos voluntariamente para recibir información sobre PULSO 30 y ser contactado acerca del diagnóstico. Entiendo que se abrirá mi aplicación de correo para que confirme el envío; la página no guarda mis respuestas. No incluiré contraseñas, información financiera confidencial ni datos de terceros.</label></div>
+      <div class="agreement"><input id="consent" name="Consentimiento" type="checkbox" required value="Sí"><label for="consent">Autorizo a Juan David Escobar a utilizar mis datos para evaluar mi solicitud de PULSO 30, registrarlos en su CRM privado de Google Sheets y contactarme por correo o WhatsApp. Conozco el <a href="privacidad.html" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">aviso de privacidad</a> y sé que puedo solicitar acceso, corrección o supresión por correo. No incluiré datos confidenciales ni información de terceros.</label></div>
     </fieldset>
     <p id="err" class="error" role="alert" hidden>Verifica los campos obligatorios antes de continuar.</p>
-    <div class="actions"><button type="button" id="prev" class="back" hidden>← Anterior</button><span id="spacer"></span><button type="button" class="btn" id="next">Continuar <span aria-hidden="true">↗</span></button><button type="submit" class="btn" id="submit" hidden>Preparar solicitud <span aria-hidden="true">↗</span></button></div>
-    <p class="step-hint" id="hint">01 de 03 · Tus datos no se envían automáticamente.</p>
+    <div class="actions"><button type="button" id="prev" class="back" hidden>← Anterior</button><span id="spacer"></span><button type="button" class="btn" id="next">Continuar <span aria-hidden="true">↗</span></button><button type="submit" class="btn" id="submit" hidden>Enviar diagnóstico <span aria-hidden="true">↗</span></button></div>
+    <p class="step-hint" id="hint">01 de 03 · Solo registramos tus datos cuando presionas Enviar.</p>
    </form>
    <div id="fallback" class="fallback" hidden>
      <h3>Solicitud preparada.</h3>
@@ -135,7 +135,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
    active=index;steps.forEach((s,i)=>{s.hidden=i!==active;s.classList.remove('reveal');if(i===active)requestAnimationFrame(()=>s.classList.add('reveal'));});
    progress.forEach((p,i)=>{if(i===active)p.setAttribute('aria-current','step');else p.removeAttribute('aria-current');p.classList.toggle('completed',i<active);});
    prev.hidden=active===0;next.hidden=active===steps.length-1;submit.hidden=active!==steps.length-1;err.hidden=true;
-   hint.textContent=String(active+1).padStart(2,'0')+' de 03 · Tus datos no se envían automáticamente.';
+   hint.textContent=String(active+1).padStart(2,'0')+' de 03 · Solo registramos tus datos cuando presionas Enviar.';
    if(window.innerWidth<850)window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
  }
  function validate(index){const fields=[...steps[index].querySelectorAll('[required]')];for(const field of fields){if(!field.checkValidity()){field.reportValidity();return false;}}return true;}
@@ -149,6 +149,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
    const body=lines.join('\n');
    const endpoint=String(window.PULSO30_CRM_WEB_APP_URL||"").trim();
    if(/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(endpoint)){
+     submit.disabled=true;submit.textContent='Enviando solicitud…';
      const iframe=document.createElement('iframe');iframe.name='p30_submit_'+Date.now();iframe.hidden=true;
      iframe.setAttribute('aria-hidden','true');document.body.appendChild(iframe);
      const nonce=crypto.randomUUID?crypto.randomUUID():String(Date.now())+'_'+Math.random();
@@ -157,14 +158,17 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
      [['nonce',nonce],['website',''],['consentimiento','Si'],['version_aviso','pulso30-consent-v1']].forEach(([key,value])=>{const field=document.createElement('input');field.name=key;field.value=value;payload.appendChild(field);});
      document.body.appendChild(payload);
      let done=false;
-     const timeout=setTimeout(()=>complete(false,'No se pudo confirmar el registro. Por favor contáctanos por correo.'),18000);
+     const timeout=setTimeout(()=>complete(false,'No se pudo confirmar el registro. Por favor contáctanos por correo.'),25000);
      function complete(ok,msg){
        if(done)return;done=true;clearTimeout(timeout);removeEventListener('message',onMessage);
+       submit.disabled=false;submit.innerHTML='Enviar diagnóstico <span aria-hidden="true">↗</span>';
        payload.remove();setTimeout(()=>iframe.remove(),1000);
        fallback.hidden=false;
        fallback.querySelector('h3').textContent=ok?'Solicitud registrada.':'No se confirmó el registro.';
-       fallback.querySelector('p').textContent=ok?'Tu diagnóstico quedó registrado. Te contactaremos para coordinar la conversación.':'No se pudo confirmar el envío automático. Copia el contenido y envíalo por correo para asegurar la recepción.';
+       fallback.querySelector('p').textContent=ok?'Recibimos tu diagnóstico. Te contactaremos para coordinar la conversación.':'No pudimos verificar que se haya registrado. Puedes enviarlo por correo, pero revisa primero si ya recibiste confirmación para evitar duplicados.';
        draft.value=body;
+       document.getElementById('draft').hidden=ok;
+       document.getElementById('copy').hidden=ok;
        fallback.scrollIntoView({block:'center',behavior:'smooth'});
      }
      function onMessage(ev){
