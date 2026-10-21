@@ -4,8 +4,13 @@ Estado actual: **Google Sheets listo; Apps Script aún no autorizado ni publicad
 
 CRM: https://docs.google.com/spreadsheets/d/1kbhfmHqzTyDpKoIhauzPUgQd_SEXE69zAQzaE9aJvO8/edit
 
+## Acceso de la cuenta correcta
+El CRM pertenece a escobarjuandavid21@gmail.com. Si Apps Script muestra "No se pudo abrir el archivo", intenta la ventana de incógnito con **solo esa cuenta iniciada**; Google Apps Script presenta conflictos de múltiples cuentas simultáneas.
+
+**Plan alternativo si Extensiones > Apps Script falla:** abre https://script.google.com/home/start con esa cuenta y elige **Proyecto nuevo**. El código usa `SpreadsheetApp.openById()` y por eso funciona como proyecto independiente del documento.
+
 ## Paso único en tu cuenta de Google (necesario por seguridad)
-1. Abre la hoja; ve a **Extensiones → Apps Script**. Si está disponible, pega el contenido de `Code.gs`.
+1. Abre la hoja; ve a **Extensiones → Apps Script** o usa **script.google.com → Proyecto nuevo**. Pega todo el contenido de `Code.gs`. No cambies el ID de la hoja.
 2. Guarda el proyecto. En Implementar → Nueva implementación → Aplicación web, selecciona **Ejecutar como: Yo** y **Quién tiene acceso: Cualquier persona**. Esta configuración hace público SOLO el endpoint; nunca el archivo de Google Sheets.
 3. Autoriza acceso a Sheets y MailApp desde la cuenta propietaria.
 4. Copia la URL HTTPS que termina en `/exec`.
