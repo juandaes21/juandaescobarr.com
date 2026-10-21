@@ -1,12 +1,13 @@
 /**
  * PULSO 30 CRM — Google Apps Script
- * Instalación: Extensiones > Apps Script en el CRM, pegar código, guardar
+ * Instalación: en el CRM Extensiones > Apps Script, o script.google.com > Proyecto nuevo.
  * Implementar > Nueva implementación > Aplicación web.
  * Ejecutar como: Yo. Acceso: Cualquier persona. No publicar la hoja.
  * ATENCIÓN: la URL /exec debe conectarse a la web DESPUÉS de autorizar y probar el flujo.
  */
 const CFG = Object.freeze({
   SHEET: "Prospectos",
+  SPREADSHEET_ID: "1kbhfmHqzTyDpKoIhauzPUgQd_SEXE69zAQzaE9aJvO8",
   EMAIL: "juandaes01@hotmail.com",
   ORIGIN: "https://juandaescobarr.com",
   VERSION: "pulso30-consent-v1",
@@ -48,7 +49,7 @@ function doPost(e) {
       empresa=safe_(data["Empresa"],100),meta=safe_(data["Objetivo a 90 días"],600);
     if(name.length<2 || empresa.length<2 || meta.length<8 ||
        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return view_(false,nonce,"Datos obligatorios inválidos.");
-    const sheet=SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CFG.SHEET);
+    const sheet=SpreadsheetApp.openById(CFG.SPREADSHEET_ID).getSheetByName(CFG.SHEET);
     if(!sheet)return view_(false,nonce,"No existe la hoja Prospectos.");
     if(sheet.getLastRow()>=CFG.MAX_ROWS)return view_(false,nonce,"Límite operativo alcanzado.");
     const props=PropertiesService.getScriptProperties();
