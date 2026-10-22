@@ -13,17 +13,20 @@
 <meta property="og:description" content="Menos ruido. Mejores decisiones. Consultoría empresarial mensual por Juan David Escobar.">
 <meta property="og:url" content="https://juandaescobarr.com/pulso30/">
 <link rel="canonical" href="https://juandaescobarr.com/pulso30/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light;--ink:#172b24;--forest:#102c26;--deep:#0e231e;--paper:#f7f6f1;--bone:#eeeee7;--mist:#e4e7dd;--olive:#566957;--brass:#a98b5a;--gold:#bda276;--line:#d4dacf;--white:#ffffff;--serif:"Iowan Old Style","Baskerville","Palatino Linotype",Georgia,serif;--sans:Inter,"Helvetica Neue",Arial,sans-serif}
+:root{color-scheme:light;--ink:#172b24;--forest:#102c26;--deep:#0e231e;--paper:#f7f6f1;--bone:#eeeee7;--mist:#e4e7dd;--olive:#566957;--brass:#a98b5a;--gold:#bda276;--line:#d4dacf;--white:#ffffff;--serif:"Newsreader","Iowan Old Style",Georgia,serif;--sans:"DM Sans","Helvetica Neue",Arial,sans-serif}
 *,*:before,*:after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--brass);outline-offset:5px}
 ::selection{background:var(--gold);color:var(--deep)}
 .container{width:min(1320px,calc(100% - 112px));margin-inline:auto}
-.upper{font-size:10px;font-weight:700;letter-spacing:.20em;text-transform:uppercase}
+.upper{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .reading{position:fixed;top:0;left:0;height:2px;background:var(--gold);transform-origin:left;transform:scaleX(0);width:100%;z-index:80;pointer-events:none}
 .site-header{position:sticky;top:0;z-index:60;background:rgba(247,246,241,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
@@ -40,14 +43,14 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 .navlinks a:hover{color:var(--brass)}
 .action{border:1px solid var(--forest);padding:12px 17px;font-size:11px;letter-spacing:.06em;font-weight:700;white-space:nowrap;transition:background .3s,color .3s,transform .3s}
 .action:hover{color:var(--paper);background:var(--forest);transform:translateY(-1px)}
-.mobile-nav{display:none}
+.mobile-nav{display:none}.menu-icon{display:flex;flex-direction:column;gap:4px}.menu-icon i{width:16px;height:1px;background:currentColor;display:block}
 .mobile-panel{display:none}
 .hero{background:var(--paper);overflow:hidden}
 .hero-grid{min-height:710px;display:grid;grid-template-columns:55% 45%;align-items:stretch}
 .hero-copy{padding:105px 32px 78px 0;align-self:center}
 .rule-label{display:flex;gap:17px;align-items:center;color:var(--olive)}
 .rule-label:before{content:"";display:block;width:34px;height:1px;background:var(--brass)}
-.hero h1{font-family:var(--serif);font-size:clamp(66px,7.05vw,112px);font-weight:400;letter-spacing:-.065em;line-height:.99;margin:34px 0 34px}
+.hero h1{font-family:var(--serif);font-size:clamp(62px,6.8vw,106px);font-weight:400;letter-spacing:-.04em;line-height:1.025;margin:34px 0 34px}
 .hero h1 em{font-weight:400;color:var(--olive);font-style:italic}
 .hero .explain{max-width:495px;color:#5e695e;font-size:17px;line-height:1.8;letter-spacing:-.012em}
 .buttons{display:flex;align-items:center;gap:31px;margin-top:40px;flex-wrap:wrap}
@@ -83,18 +86,18 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 .section-intro{display:grid;grid-template-columns:28% 1fr;gap:45px}
 .index-label{display:inline-flex;align-items:center;gap:20px;color:var(--olive);padding-top:10px}
 .index-label:before{content:"";width:35px;height:1px;background:var(--brass)}
-.display{font:400 clamp(42px,5.05vw,75px)/1.08 var(--serif);letter-spacing:-.045em}
+.display{font:400 clamp(42px,4.9vw,72px)/1.12 var(--serif);letter-spacing:-.026em}
 .display em{color:var(--olive);font-style:italic}
 .section-intro .display{max-width:800px;margin:0 0 24px}
 .intro-sub{font-size:16px;color:#617063;line-height:1.85;max-width:650px;margin:0}
 .deliverables{padding-top:85px}
-.deliver-row{display:grid;grid-template-columns:10% 29% 1fr 18px;gap:20px;align-items:center;padding:31px 0;border-top:1px solid var(--line);transition:padding .25s,color .25s}
+.deliver-row{display:grid;grid-template-columns:8% 34% 1fr;gap:20px;align-items:center;padding:33px 0;border-top:1px solid var(--line);transition:background-color .25s ease,color .25s ease}
 .deliver-row:last-child{border-bottom:1px solid var(--line)}
-.deliver-row:hover{padding-inline:12px;color:#38644e}
+.deliver-row:hover{background-color:#f0f2eb;color:#315342}
 .deliver-num{font:400 18px var(--serif);color:var(--brass)}
-.deliver-name{font:400 27px/1.15 var(--serif);letter-spacing:-.03em}
+.deliver-name{font:400 28px/1.18 var(--serif);letter-spacing:-.018em}
 .deliver-desc{font-size:14px;color:#68756b;line-height:1.75}
-.deliver-arrow{font-size:20px;color:var(--brass)}
+
 .dark{background:var(--forest);color:var(--paper)}
 .dark .index-label{color:#b4c3b5}
 .dark .display em{color:var(--gold)}
@@ -106,12 +109,12 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 .phase:not(:first-child){padding-left:22px}
 .phase:not(:first-child):before{left:22px}
 .phase .mini{display:block;color:var(--gold);margin-bottom:29px}
-.phase h3{font:400 31px/1.14 var(--serif);letter-spacing:-.02em;margin:0 0 15px}
+.phase h3{font:400 30px/1.18 var(--serif);letter-spacing:-.016em;margin:0 0 15px}
 .phase p{max-width:230px;color:#b0beb2;font-size:13px;line-height:1.85;margin:0}
 .philosophy{padding:124px 0;background:#e9ebe1}
 .philosophy-grid{display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}
 .quote-mark{font:400 160px/1 var(--serif);color:#c4cdbf;margin-bottom:-87px}
-.philosophy blockquote{font:400 clamp(32px,3.8vw,53px)/1.25 var(--serif);letter-spacing:-.035em;margin:0}
+.philosophy blockquote{font:400 clamp(32px,3.8vw,51px)/1.3 var(--serif);letter-spacing:-.02em;margin:0}
 .philosophy blockquote em{color:var(--olive)}
 .philosophy .aside{border-left:1px solid #b8c3b6;padding-left:35px;color:#586b5d;font-size:15px;line-height:2;max-width:470px}
 .pricing{padding:145px 0}
@@ -122,11 +125,11 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 .price-panel:before{position:absolute;content:"";inset:9px;border:1px solid #cdd5ca55;pointer-events:none}
 .price-panel .upper{color:var(--olive)}
 .amount{display:flex;align-items:baseline;gap:15px;border-bottom:1px solid var(--line);padding:16px 0 30px;margin-bottom:25px}
-.amount strong{font:400 clamp(68px,8vw,118px)/1 var(--serif);letter-spacing:-.075em}
+.amount strong{font:400 clamp(68px,8vw,118px)/1 var(--serif);letter-spacing:-.045em}
 .amount span{font-size:13px;color:var(--olive)}
 .price-panel ul{list-style:none;margin:0;padding:0 0 20px}
 .price-panel li{border-bottom:1px solid #e4e7dd;padding:12px 0;display:flex;justify-content:space-between;gap:18px;font-size:13px}
-.price-panel li:after{content:"↗";color:var(--brass)}
+.price-panel li:after{content:"";width:5px;height:5px;border-radius:50%;background:var(--brass);opacity:.75;flex:0 0 auto;align-self:center}
 .price-panel .primary-button{margin-top:27px;display:flex;justify-content:space-between}
 .fine{font-size:11px;color:#7d887e;margin:16px 0 0;line-height:1.6}
 .faq{padding:100px 0 125px;border-top:1px solid var(--line)}
@@ -141,7 +144,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 .accordion p{font-size:14px;color:#647165;line-height:1.8;max-width:620px;padding-right:18px;margin:-4px 0 25px}
 .end{padding:118px 0;background:var(--deep);color:var(--paper)}
 .end-content{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:end}
-.end h2{font:400 clamp(45px,5.75vw,84px)/1.06 var(--serif);letter-spacing:-.06em;max-width:800px;margin:21px 0 0}
+.end h2{font:400 clamp(45px,5.6vw,81px)/1.095 var(--serif);letter-spacing:-.035em;max-width:800px;margin:21px 0 0}
 .end h2 em{color:var(--gold)}
 .end .primary-button{background:var(--gold);color:var(--deep);margin-bottom:10px;white-space:nowrap}
 .end .primary-button:hover{background:#d3ba8a}
@@ -155,9 +158,9 @@ footer{background:#0a1e19;color:#a5b4a5;padding:25px 0;font-size:11px}
 .orbit-ring.two{animation:orbit-rev 44s linear infinite}
 .orbit-core{animation:breathe 8s ease-in-out infinite}
 @keyframes orbit{to{transform:rotate(360deg)}}@keyframes orbit-rev{to{transform:rotate(-360deg)}}@keyframes breathe{50%{opacity:.78}}
-@media(max-width:1150px){.container{width:min(100% - 70px,1250px)}.navlinks{gap:17px}.hero h1{font-size:clamp(64px,7vw,94px)}.hero-grid{grid-template-columns:52% 48%}.price-grid{gap:55px}.deliver-row{grid-template-columns:8% 33% 1fr 18px}}
+@media(max-width:1150px){.container{width:min(100% - 70px,1250px)}.navlinks{gap:17px}.hero h1{font-size:clamp(64px,7vw,94px)}.hero-grid{grid-template-columns:52% 48%}.price-grid{gap:55px}.deliver-row{grid-template-columns:8% 34% 1fr}}
 @media(max-width:850px){.container{width:calc(100% - 48px)}.navlinks{display:none}.mobile-nav{display:flex;background:transparent;border:1px solid var(--line);color:var(--ink);padding:10px 13px;font-size:12px;align-items:center;gap:10px}.mobile-panel{background:var(--paper);padding:0 24px 22px;border-top:1px solid var(--line)}.mobile-panel[hidden]{display:none}.mobile-panel:not([hidden]){display:grid;gap:0}.mobile-panel a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:13px}.hero-grid{grid-template-columns:1fr}.hero-copy{padding:80px 0 70px}.hero-art{min-height:430px}.orbit{width:min(65%,380px)}.hero h1{font-size:clamp(64px,9vw,95px)}.hero-stat{padding:17px 16px;display:block}.hero-stat span{display:block;margin-top:5px}.section{padding:90px 0}.section-intro{grid-template-columns:1fr;gap:28px}.deliverables{padding-top:45px}.phase{padding-right:20px}.phase:not(:first-child){padding-left:13px}.phase:not(:first-child):before{left:13px}.phase h3{font-size:25px}.price-grid,.philosophy-grid{grid-template-columns:1fr}.philosophy-grid{gap:35px}.price-panel{max-width:580px}.faq-grid{grid-template-columns:1fr;gap:37px}.end-content{grid-template-columns:1fr;gap:40px}}
-@media(max-width:580px){.container{width:calc(100% - 36px)}.utility{height:27px}.utility .container span:last-child{display:none}.nav{height:68px}.brand-icon{width:36px;height:36px}.mono{width:32px;height:32px}.mark strong{font-size:13px}.mark span{font-size:8px}.hero-copy{padding:65px 0 60px}.hero h1{font-size:clamp(57px,14vw,81px);letter-spacing:-.06em;margin:27px 0}.hero .explain{font-size:15px}.buttons{display:flex;gap:25px;margin-top:30px}.hero-art{min-height:365px}.art-label{left:30px;top:30px}.art-corner{left:30px;bottom:28px}.art-side{right:22px;bottom:24px}.orbit{width:72%}.orbit-core strong{font-size:109px}.hero-foot .container{grid-template-columns:1fr 1fr}.hero-stat{border-bottom:1px solid var(--line);padding:17px 10px}.hero-stat:nth-child(2){border-right:0}.hero-stat:nth-child(3),.hero-stat:nth-child(4){border-bottom:0}.section{padding:78px 0}.display{font-size:clamp(42px,11vw,56px)}.deliver-row{grid-template-columns:35px 1fr 18px;gap:8px;padding:25px 0}.deliver-desc{grid-column:2/3;font-size:13px}.deliver-arrow{grid-column:3;grid-row:1}.deliver-name{font-size:25px}.timeline{grid-template-columns:1fr 1fr;gap:20px 0;margin-top:55px}.phase{min-height:180px}.phase h3{font-size:26px}.phase:not(:first-child){padding-left:15px}.phase:not(:first-child):before{left:15px}.phase .mini{margin-bottom:24px}.philosophy{padding:85px 0}.quote-mark{font-size:120px;margin-bottom:-65px}.philosophy blockquote{font-size:36px}.philosophy .aside{font-size:14px;padding-left:23px}.pricing{padding:80px 0}.price-panel{padding:28px}.amount strong{font-size:76px}.faq{padding:80px 0}.end{padding:80px 0}.end h2{font-size:clamp(47px,12vw,66px)}.foot{align-items:start;flex-direction:column;gap:12px}.footlinks{gap:22px}}
+@media(max-width:580px){.container{width:calc(100% - 36px)}.utility{height:27px}.utility .container span:last-child{display:none}.nav{height:68px}.brand-icon{width:36px;height:36px}.mono{width:32px;height:32px}.mark strong{font-size:13px}.mark span{font-size:8px}.hero-copy{padding:65px 0 60px}.hero h1{font-size:clamp(56px,13.6vw,79px);letter-spacing:-.035em;margin:27px 0}.hero .explain{font-size:15px}.buttons{display:flex;gap:25px;margin-top:30px}.hero-art{min-height:365px}.art-label{left:30px;top:30px}.art-corner{left:30px;bottom:28px}.art-side{right:22px;bottom:24px}.orbit{width:72%}.orbit-core strong{font-size:109px}.hero-foot .container{grid-template-columns:1fr 1fr}.hero-stat{border-bottom:1px solid var(--line);padding:17px 10px}.hero-stat:nth-child(2){border-right:0}.hero-stat:nth-child(3),.hero-stat:nth-child(4){border-bottom:0}.section{padding:78px 0}.display{font-size:clamp(42px,11vw,56px)}.deliver-row{grid-template-columns:35px 1fr;gap:8px;padding:25px 0}.deliver-desc{grid-column:2/3;font-size:13px}.deliver-name{font-size:25px}.timeline{grid-template-columns:1fr 1fr;gap:20px 0;margin-top:55px}.phase{min-height:180px}.phase h3{font-size:26px}.phase:not(:first-child){padding-left:15px}.phase:not(:first-child):before{left:15px}.phase .mini{margin-bottom:24px}.philosophy{padding:85px 0}.quote-mark{font-size:120px;margin-bottom:-65px}.philosophy blockquote{font-size:36px}.philosophy .aside{font-size:14px;padding-left:23px}.pricing{padding:80px 0}.price-panel{padding:28px}.amount strong{font-size:76px}.faq{padding:80px 0}.end{padding:80px 0}.end h2{font-size:clamp(47px,12vw,66px)}.foot{align-items:start;flex-direction:column;gap:12px}.footlinks{gap:22px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important}}
 </style>
 </head>
@@ -169,7 +172,7 @@ footer{background:#0a1e19;color:#a5b4a5;padding:25px 0;font-size:11px}
     <a href="https://juandaescobarr.com" class="identity" aria-label="Volver a Juan David Escobar"><img src="assets/pulso30-isotipo.png" class="brand-icon" width="42" height="42" alt="" decoding="async"><span class="mark"><strong>PULSO 30</strong><span>BUSINESS ADVISORY</span></span></a>
     <nav class="navlinks" aria-label="Secciones"><a href="#enfoque">Enfoque</a><a href="#entregables">Entregables</a><a href="#metodologia">Método</a><a href="#inversion">Inversión</a></nav>
     <a href="diagnostico.html" class="action navlinks-cta">Conversemos ↗</a>
-    <button class="mobile-nav" id="menuButton" aria-expanded="false" aria-controls="mobilePanel" type="button">Menú <span aria-hidden="true">☰</span></button>
+    <button class="mobile-nav" id="menuButton" aria-expanded="false" aria-controls="mobilePanel" type="button">Menú <span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
   </div>
   <nav class="mobile-panel" id="mobilePanel" hidden aria-label="Navegación móvil"><a href="#enfoque">Enfoque</a><a href="#entregables">Entregables</a><a href="#metodologia">Método</a><a href="#inversion">Inversión</a><a href="diagnostico.html">Solicitar diagnóstico ↗</a></nav>
 </header>
@@ -197,17 +200,17 @@ footer{background:#0a1e19;color:#a5b4a5;padding:25px 0;font-size:11px}
   <div class="hero-stat"><strong>01 negocio</strong><span>Por membresía</span></div>
 </div></div>
 <section class="section" id="enfoque"><div class="container">
-  <div class="section-intro reveal"><div class="index-label upper">01 / EL ENFOQUE</div><div><h2 class="display">Tu negocio no necesita más ruido. Necesita <em>perspectiva.</em></h2><p class="intro-sub">PULSO 30 es un sistema de consultoría empresarial por suscripción. Cada mes revisamos qué está pasando, identificamos dónde actuar y estructuramos tres decisiones que merecen tu atención.</p></div></div>
+  <div class="section-intro reveal"><div class="index-label upper">01 / EL ENFOQUE</div><div><h2 class="display">Dirigir mejor empieza por entender <em>lo que pasa.</em></h2><p class="intro-sub">Una consultoría mensual para analizar tus resultados, detectar dónde actuar y escoger tres prioridades claras para el siguiente mes.</p></div></div>
   <div class="deliverables" id="entregables">
-    <div class="deliver-row reveal"><span class="deliver-num">01</span><span class="deliver-name">Business Scorecard</span><span class="deliver-desc">Los indicadores esenciales de ventas, rentabilidad, caja y clientes, según la información disponible.</span><span class="deliver-arrow" aria-hidden="true">↗</span></div>
-    <div class="deliver-row reveal"><span class="deliver-num">02</span><span class="deliver-name">Executive Review</span><span class="deliver-desc">Un informe ejecutivo de 3 a 5 páginas que explica resultados, riesgos y oportunidades.</span><span class="deliver-arrow" aria-hidden="true">↗</span></div>
-    <div class="deliver-row reveal"><span class="deliver-num">03</span><span class="deliver-name">Growth Sprint 30</span><span class="deliver-desc">Tres acciones priorizadas, cada una con responsable, fecha de entrega e indicador.</span><span class="deliver-arrow" aria-hidden="true">↗</span></div>
-    <div class="deliver-row reveal"><span class="deliver-num">04</span><span class="deliver-name">Advisory Committee</span><span class="deliver-desc">Un espacio estratégico de 40 minutos para conversar y tomar mejores decisiones.</span><span class="deliver-arrow" aria-hidden="true">↗</span></div>
-    <div class="deliver-row reveal"><span class="deliver-num">05</span><span class="deliver-name">Accountability Check</span><span class="deliver-desc">Un seguimiento breve y asíncrono para revisar avances y detectar bloqueos.</span><span class="deliver-arrow" aria-hidden="true">↗</span></div>
+    <div class="deliver-row reveal"><span class="deliver-num">01</span><span class="deliver-name">Panel de indicadores</span><span class="deliver-desc">Los indicadores esenciales de ventas, rentabilidad, caja y clientes, según la información disponible.</span></div>
+    <div class="deliver-row reveal"><span class="deliver-num">02</span><span class="deliver-name">Informe ejecutivo</span><span class="deliver-desc">Un informe ejecutivo de 3 a 5 páginas que explica resultados, riesgos y oportunidades.</span></div>
+    <div class="deliver-row reveal"><span class="deliver-num">03</span><span class="deliver-name">Plan de 30 días</span><span class="deliver-desc">Tres acciones priorizadas, cada una con responsable, fecha de entrega e indicador.</span></div>
+    <div class="deliver-row reveal"><span class="deliver-num">04</span><span class="deliver-name">Sesión de dirección</span><span class="deliver-desc">Un espacio estratégico de 40 minutos para conversar y tomar mejores decisiones.</span></div>
+    <div class="deliver-row reveal"><span class="deliver-num">05</span><span class="deliver-name">Seguimiento mensual</span><span class="deliver-desc">Un seguimiento breve y asíncrono para revisar avances y detectar bloqueos.</span></div>
   </div>
 </div></section>
 <section class="section dark method" id="metodologia"><div class="container">
-  <div class="section-intro reveal"><div class="index-label upper">02 / EL MÉTODO</div><div><h2 class="display">La estrategia solo importa cuando se convierte en <em>acción.</em></h2><p class="intro-sub">Un sistema mensual, ligero y consistente. La dirección de tu empresa sigue en tus manos; nosotros aportamos análisis y acompañamiento externo.</p></div></div>
+  <div class="section-intro reveal"><div class="index-label upper">02 / EL MÉTODO</div><div><h2 class="display">Un método para pasar del análisis a las <em>decisiones.</em></h2><p class="intro-sub">Tú diriges tu empresa. Nosotros te ayudamos a leer los datos, plantear alternativas y dar seguimiento a lo acordado.</p></div></div>
   <div class="timeline">
     <article class="phase reveal"><span class="mini upper">SEMANA 01</span><h3>Entender.</h3><p>Recopilamos tus datos y evaluamos el desempeño del mes anterior.</p></article>
     <article class="phase reveal"><span class="mini upper">SEMANA 02</span><h3>Interpretar.</h3><p>Señalamos tendencias, riesgos y oportunidades que merecen atención.</p></article>
@@ -216,11 +219,11 @@ footer{background:#0a1e19;color:#a5b4a5;padding:25px 0;font-size:11px}
   </div>
 </div></section>
 <section class="philosophy"><div class="container philosophy-grid">
-  <div class="reveal"><div class="quote-mark" aria-hidden="true">“</div><blockquote>Crecer no es hacer más cosas. Es entender <em>cuáles importan.</em></blockquote></div>
+  <div class="reveal"><div class="quote-mark" aria-hidden="true">“</div><blockquote>No se trata de tener más reportes, sino de saber <em>qué hacer con ellos.</em></blockquote></div>
   <div class="aside reveal">PULSO 30 combina análisis de negocio, criterio financiero y una mirada externa para acompañar a fundadores y gerentes. No busca reemplazar a tu equipo: busca ayudarte a dirigirlo con mayor claridad.</div>
 </div></section>
 <section class="pricing" id="inversion"><div class="container price-grid">
-  <div class="price-copy reveal"><div class="index-label upper">03 / LA INVERSIÓN</div><h2 class="display">Un asesor externo.<br><em>Sin complejidad.</em></h2><p>Un servicio delimitado para una empresa o unidad operativa, con una rutina mensual diseñada para aportar claridad y seguimiento, sin contratar una estructura de consultoría tradicional.</p><p>Recomendamos evaluar el proceso durante los primeros 90 días para comparar resultados y consolidar hábitos de gestión.</p></div>
+  <div class="price-copy reveal"><div class="index-label upper">03 / LA INVERSIÓN</div><h2 class="display">Criterio externo.<br><em>Foco mensual.</em></h2><p>Un servicio delimitado para una empresa o unidad operativa, con una rutina mensual diseñada para aportar claridad y seguimiento, sin contratar una estructura de consultoría tradicional.</p><p>Recomendamos evaluar el proceso durante los primeros 90 días para comparar resultados y consolidar hábitos de gestión.</p></div>
   <div class="price-panel reveal"><div class="upper">PULSO 30 / PLAN MENSUAL</div><div class="amount"><strong>$100</strong><span>USD / MES</span></div><ul><li>Dashboard de indicadores</li><li>Informe ejecutivo mensual</li><li>Plan de tres prioridades</li><li>Comité estratégico de 40 min</li><li>Seguimiento asíncrono</li></ul><a class="primary-button" href="diagnostico.html">Solicitar diagnóstico <span aria-hidden="true">↗</span></a><p class="fine">Pago mensual por adelantado. Impuestos aplicables según facturación. Alcance definido en la propuesta; no incluye contabilidad, campañas ni ejecución operativa.</p></div>
 </div></section>
 <section class="faq" id="preguntas"><div class="container faq-grid">
@@ -235,7 +238,7 @@ footer{background:#0a1e19;color:#a5b4a5;padding:25px 0;font-size:11px}
 </div></section>
 <section class="end"><div class="container end-content"><div><div class="upper" style="color:var(--gold)">HABLEMOS DE TU NEGOCIO</div><h2>La siguiente decisión puede tomarse con <em>más claridad.</em></h2></div><a href="diagnostico.html" class="primary-button">Empezar con un diagnóstico <span aria-hidden="true">↗</span></a></div></section>
 </main>
-<footer><div class="container foot"><span>© 2026 PULSO 30 — Juan David Escobar</span><div class="footlinks"><a href="https://juandaescobarr.com">Marca personal ↗</a><a href="mailto:juandaes01@hotmail.com?subject=PULSO%2030">Contacto ↗</a></div></div></footer>
+<footer><div class="container foot"><span>© 2026 PULSO 30 — Juan David Escobar</span><div class="footlinks"><a href="https://juandaescobarr.com">Marca personal</a><a href="mailto:juandaes01@hotmail.com?subject=PULSO%2030">Contacto</a></div></div></footer>
 <script>
 (function(){
  const menu=document.getElementById('menuButton'),panel=document.getElementById('mobilePanel'),bar=document.getElementById('reading');
